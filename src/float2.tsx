@@ -7,6 +7,7 @@ type data={
     image2:string,
     animate:{x:Array<number>,y:Array<number>};
     durationB:number;
+    Y:number;
 
 }
 export default function Floater2(ele:data){
@@ -14,8 +15,8 @@ export default function Floater2(ele:data){
     return (
         <motion.div 
             initial={{opacity:0,y:ele.yIn,x:ele.xIn}}
-            animate={{y:ele.yFi,x:ele.xFi,opacity:1}}
-            transition={{duration:2,type:"tween",when:"beforeChildren"}}
+            animate={{ y: ele.yFi*Math.min(1,ele.Y), x: ele.xFi*Math.min(ele.Y,1), opacity:ele.Y*ele.Y }}
+            transition={{ duration: 0,type:"tween", ease: "linear", when: "beforeChildren" }}
             >
                 <motion.div 
                 initial={{y:0,x:0}}

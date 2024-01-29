@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+import { MotionValue, motion } from "framer-motion";
 import Floater from "./float";
 import Floater2 from "./float2";
 
 type data = {
-  Y: number;
+  Y: MotionValue<number>;
 };
 export function Page(ele: data) {
   function generateRandomAnimation() {
@@ -29,6 +29,8 @@ export function Page(ele: data) {
       animate1: generateRandomAnimation(),
       animate2: generateRandomAnimation(),
       myClass1: "",
+      xDirection:1,
+      yD:1,
     },
     {
       xIn: 600,
@@ -42,6 +44,8 @@ export function Page(ele: data) {
       animate1: generateRandomAnimation(),
       animate2: generateRandomAnimation(),
       myClass1: "",
+      xDirection:1,
+      yD:1,
     },
     {
       xIn: 1280,
@@ -55,6 +59,8 @@ export function Page(ele: data) {
       animate1: generateRandomAnimation(),
       animate2: generateRandomAnimation(),
       myClass1: "",
+      xDirection:-1,
+      yD:1,
     },
     {
       xIn: -100,
@@ -68,6 +74,8 @@ export function Page(ele: data) {
       animate1: generateRandomAnimation(),
       animate2: generateRandomAnimation(),
       myClass1: "",
+      xDirection:1,
+      yD:-1,
     },
     {
       xIn: 1280,
@@ -81,13 +89,15 @@ export function Page(ele: data) {
       animate1: generateRandomAnimation(),
       animate2: generateRandomAnimation(),
       myClass1: "",
+      xDirection: -1,
+      yD: -1,
     },
   ];
 
   return (
     <>
       <div className="tw-relative tw-h-[100vh] tw-bg-[url('/bg.png')]  tw-w-[100vw] tw-bg-cover tw-bg-center tw-overflow-hidden ">
-        {ele.Y}
+        {/* {ele.Y} */}
         {obj.map((item, index) => (
           <Floater
             key={index}
@@ -100,10 +110,12 @@ export function Page(ele: data) {
             durationA={item.duration}
             myClass={item.myClass1}
             Y={ele.Y}
+            xD={item.xDirection}
+            yD={item.yD}
           />
         ))}
 
-        {obj.map((item, index) => (
+        {/* {obj.map((item, index) => (
           <Floater2
             key={index}
             xIn={item.xIn}
@@ -115,7 +127,7 @@ export function Page(ele: data) {
             durationB={item.duration2}
             Y={ele.Y}
           />
-        ))}
+        ))} */}
 
         <div className="main tw-w-[100vw] tw-h-[100vh] tw-flex tw-flex-col tw-items-center tw-justify-center">
           <motion.div

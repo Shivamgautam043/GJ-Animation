@@ -49,6 +49,7 @@ export function Test() {
   const {scrollY} = useScroll();
   const z = useTransform(scrollY, (y) => redCoordinates == null ? -1 : (y - redCoordinates.scrollStart) / (redCoordinates.scrollEnd - redCoordinates.scrollStart));
   console.log(z);
+
   return (
     <div className="tw-w-[98vw] tw-h-[500vh]">
       <div className="tw-w-full tw-h-[100vh] tw-bg-green-500" />
@@ -58,14 +59,14 @@ export function Test() {
       {/* <video src="https://assets.codepen.io/39255/output_960.mp4" className="tw-w-full tw-h-[100vh] tw-sticky tw-top-0 tw-bg-black" id="vid" style={{opacity: y}} /> */}
         {/* <div className="tw-h-[100vh] tw-bg-yellow-500 tw-sticky tw-top-0" style={{width: `${y*100}%`}}>
         </div> */}
-        <div className="tw-sticky tw-top-0"><Page Y={y}/></div>
+        <div className="tw-sticky tw-top-0"><Page Y={z}/></div>
         
         
         
         
       </div>
       <div className="tw-w-full tw-h-[100vh] tw-bg-blue-500" />
-      <div className="tw-fixed tw-top-0 tw-right-0 tw-text-white">{y}</div>
+      <div className="tw-fixed tw-top-0 tw-right-0 tw-text-white">{z.get()}</div>
       
     </div>
   );

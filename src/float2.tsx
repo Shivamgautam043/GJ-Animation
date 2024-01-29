@@ -20,7 +20,8 @@ export default function Floater2(ele:data){
             >
                 <motion.div 
                 initial={{y:0,x:0}}
-                animate={{x:ele.animate.x , y:ele.animate.y}}
+                // animate={{x:ele.animate.x , y:ele.animate.y}}
+                animate={{ y:[-5,5,-5], x:[-5,5,-5]}}
                 transition={{repeat:Infinity,duration:ele.durationB,delay:2}}
                 className="ele big tw-absolute  tw-h-[40px] tw-w-[40px]">
                     <img src={ele.image2} alt="" />
